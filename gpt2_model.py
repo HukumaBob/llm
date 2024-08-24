@@ -23,7 +23,6 @@ prompt = ChatPromptTemplate.from_template("""Answer the following question based
 </context>
 Question: {input}""")
 
-document_chain = create_stuff_documents_chain(llm, prompt)
 
 output_parser = StrOutputParser()
 llm = Ollama(model="llama2")
@@ -34,3 +33,4 @@ prompt = ChatPromptTemplate.from_messages([
 ])
 chain = prompt | llm | output_parser
 chain.invoke({"input": "how can langsmith help with testing?"})
+document_chain = create_stuff_documents_chain(llm, prompt)
