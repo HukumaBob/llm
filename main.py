@@ -80,7 +80,6 @@ def generate_text_from_prompt(user_prompt, language="ru"):
         
         user_prompt += f" Контекст: {context}"
         
-        # Подсчитайте количество токенов в финальном запросе
         total_tokens = llama_llm.tokenizer(user_prompt)["input_ids"]
         if len(total_tokens) > CONTEXT_SIZE:
             raise ValueError("Количество токенов превышает допустимый лимит контекста")
